@@ -1,19 +1,29 @@
-# Headless Roblox Visit Bot
+# RobloxVisitBot — Web Dashboard
 
-![image](https://github.com/sslprograms/RobloxVisitBot/assets/77415460/1ffb55fd-1a1d-4ca9-ac46-e77c7d8d50af)
+This repository now includes a browser-based project website for RobloxVisitBot.
 
-Features:
-- Up to 30 Headless Clients at Once!
-- Adds Visits even when blocked
-- 50% Faster than Normal Visit Bots
-- Multi-Client Based Bot
-- UPC/C Support
-- Reliable for Over a Year.
-- Can Switch to Visit to Concurrent Player Bot w/ Auto Rejoin!
+## Website
 
-Join the Discord: https://discord.gg/f9KSqcepPy
+- index.html — website structure
+- style.css — responsive dark UI
+- script.js — navigation enhancement
 
-Don't bot with a VPN, use different PC+Different Network for more Concurrent Players.
+The site is a static frontend and can be deployed directly to Vercel or another static hosting provider.
 
-![image](https://github.com/sslprograms/RobloxVisitBot/assets/77415460/99a3962b-7565-42c0-b53a-66bbabc9a49d)
-![image](https://github.com/sslprograms/RobloxVisitBot/assets/77415460/f0f48ed3-8214-4fdf-910f-4fba09fbee52)
+## Architecture note
+
+The original main.py is a Windows-only local application. It depends on Roblox client files, Windows APIs, local processes, and authentication cookies. A browser cannot directly launch or control those local Roblox processes.
+
+The website is therefore a dashboard/documentation frontend rather than a browser implementation of the local program.
+
+Do not put Roblox authentication cookies or other secrets into the website, client-side JavaScript, or a public repository.
+
+## Original project
+
+The original Python implementation remains in the repository for reference. The website does not execute it.
+
+## Deploy
+
+Import this repository into Vercel. No framework is required; Vercel can serve index.html directly.
+
+Repository: https://github.com/Zeroid-San/RobloxVisitBot
