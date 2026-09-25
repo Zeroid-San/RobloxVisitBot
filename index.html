@@ -1,81 +1,91 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="RobloxVisitBot project dashboard and configuration interface.">
-<title>RobloxVisitBot — Dashboard</title><link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="RobloxVisitBot dark control dashboard.">
+<title>RobloxVisitBot — Control Center</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="topbar">
-<a class="brand" href="#top"><span class="dot"></span>RobloxVisitBot</a>
-<nav><a href="#features">Features</a><a href="#dashboard">Dashboard</a><a href="#docs">Docs</a><a href="https://github.com/Zeroid-San/RobloxVisitBot" target="_blank" rel="noreferrer">GitHub ↗</a><button id="themeBtn" class="icon-btn" type="button" aria-label="Toggle theme">☼</button></nav>
-</header>
+<div class="app">
+<aside class="sidebar">
+  <a class="brand" href="#top"><span class="brand-mark">R</span><span>Roblox<span class="accent">Visit</span>Bot</span></a>
+  <div class="side-label">CONTROL</div>
+  <nav class="side-nav">
+    <a class="active" href="#dashboard"><span>▦</span> Dashboard</a>
+    <a href="#settings"><span>⚙</span> Settings</a>
+    <a href="#activity"><span>≡</span> Activity</a>
+    <a href="#docs"><span>?</span> Documentation</a>
+  </nav>
+  <div class="side-bottom">
+    <div class="connection"><span class="pulse"></span><div><b>Web dashboard</b><small>Browser ready</small></div></div>
+    <a class="github" href="https://github.com/Zeroid-San/RobloxVisitBot" target="_blank" rel="noreferrer">GitHub ↗</a>
+  </div>
+</aside>
+
 <main id="top">
-<section class="hero">
-<div>
-<div class="eyebrow">PROJECT WEBSITE</div>
-<h1>RobloxVisitBot<br><span>Web Dashboard</span></h1>
-<p>A working browser dashboard for viewing and saving safe project settings, checking browser status, and reading the project documentation.</p>
-<div class="actions"><a class="btn primary" href="#dashboard">Open dashboard</a><a class="btn" href="#docs">Documentation</a></div>
-<p class="notice">The original Python program runs locally with Roblox/Windows dependencies. This website does not execute Roblox clients or handle authentication cookies.</p>
-</div>
-<div class="terminal">
-<div class="terminal-head">live status</div>
-<p>$ dashboard.health()</p>
-<p class="good" id="healthLine">● CHECKING...</p>
-<p>mode: web dashboard</p><p>runtime: browser</p>
-<p>clock: <span id="clock">--:--:--</span></p>
-</div>
-</section>
+<header class="mobile-head"><a class="brand" href="#top"><span class="brand-mark">R</span>Roblox<span class="accent">Visit</span>Bot</a></header>
 
-<section id="features">
-<div class="title"><small>01</small><h2>Project overview</h2></div>
-<div class="cards">
-<article><b>◈</b><h3>Configuration</h3><p>Edit the safe dashboard settings and save them in this browser.</p></article>
-<article><b>⌁</b><h3>Live status</h3><p>See browser health, saved settings, and the current dashboard state.</p></article>
-<article><b>▣</b><h3>Documentation</h3><p>Keep the project's architecture and deployment notes in one place.</p></article>
-</div>
-</section>
+<section class="content" id="dashboard">
+  <div class="page-head">
+    <div><p class="kicker">CONTROL CENTER</p><h1>Dashboard</h1><p class="sub">Monitor the web interface and manage safe local dashboard settings.</p></div>
+    <div class="head-status"><span class="pulse"></span><b id="statusBadge">READY</b><span id="clock">--:--:--</span></div>
+  </div>
 
-<section id="dashboard">
-<div class="title"><small>02</small><h2>Dashboard</h2></div>
-<div class="grid">
-<div class="panel">
-<h3>Project status <span id="statusBadge">ONLINE</span></h3>
-<p>Interface <strong>Ready</strong></p>
-<p>Python runtime <strong>Local only</strong></p>
-<p>Roblox client <strong>Not connected</strong></p>
-<p>Cookie storage <strong>Browser disabled</strong></p>
-<button class="btn primary full" id="healthBtn" type="button">Run browser health check</button>
-</div>
-<div class="panel">
-<h3>Dashboard configuration <span class="purple">LOCAL</span></h3>
-<label for="threads">Display threads</label>
-<input id="threads" type="number" min="1" max="100" value="10">
-<label for="loop">Loop display</label>
-<select id="loop"><option value="true">Enabled</option><option value="false">Disabled</option></select>
-<label for="delay">Display delay (seconds)</label>
-<input id="delay" type="number" min="0" max="3600" value="10">
-<div class="actions compact"><button class="btn primary" id="saveBtn" type="button">Save settings</button><button class="btn" id="resetBtn" type="button">Reset</button></div>
-<p class="muted" id="saveMessage">Settings are stored only in this browser using localStorage.</p>
-</div>
-</div>
-</section>
+  <div class="stats">
+    <article class="stat"><span class="stat-icon">◉</span><div><small>Dashboard</small><strong id="dashboardState">ONLINE</strong></div><em>100%</em></article>
+    <article class="stat"><span class="stat-icon">⌁</span><div><small>Configuration</small><strong id="configState">SAVED</strong></div><em>LOCAL</em></article>
+    <article class="stat"><span class="stat-icon">◌</span><div><small>Roblox client</small><strong>DISCONNECTED</strong></div><em>LOCAL</em></article>
+    <article class="stat"><span class="stat-icon">▤</span><div><small>Activity events</small><strong id="eventCount">0</strong></div><em>LIVE</em></article>
+  </div>
 
-<section id="docs">
-<div class="title"><small>03</small><h2>Documentation</h2></div>
-<div class="panel">
-<h3>What works here</h3>
-<p>This website is a functional static dashboard. Navigation, theme switching, browser health checks, form validation, and local configuration persistence work directly in the browser.</p>
-<h3>What remains local</h3>
-<p>The original <code>main.py</code> is a Windows application that uses local Roblox files, Windows APIs, processes, and authentication cookies. A normal browser cannot safely or directly replace those capabilities.</p>
-<h3>Security</h3>
-<p>Never paste Roblox authentication cookies, passwords, or API secrets into this website or its JavaScript. The dashboard intentionally keeps cookie handling disabled.</p>
-<p><a class="link" href="https://github.com/Zeroid-San/RobloxVisitBot" target="_blank" rel="noreferrer">View source on GitHub ↗</a></p>
-</div>
+  <div class="workspace">
+    <section class="card control-card">
+      <div class="card-head"><div><span class="section-tag">01</span><h2>Control center</h2></div><span class="badge neutral" id="runBadge">IDLE</span></div>
+      <div class="control-hero">
+        <div class="control-icon">R</div>
+        <div><h3>Browser monitor</h3><p>This control is a safe UI preview. It does not launch Roblox clients or create artificial visits.</p></div>
+      </div>
+      <div class="control-actions">
+        <button class="btn primary" id="startBtn">Start monitor</button>
+        <button class="btn danger" id="stopBtn" disabled>Stop</button>
+        <button class="btn" id="healthBtn">Health check</button>
+      </div>
+      <div class="progress"><span id="progressBar"></span></div>
+      <div class="run-meta"><span>Status <b id="runState">Ready</b></span><span>Session <b id="sessionTime">00:00</b></span><span>Mode <b>Web</b></span></div>
+    </section>
+
+    <section class="card activity-card" id="activity">
+      <div class="card-head"><div><span class="section-tag">02</span><h2>Activity</h2></div><button class="text-btn" id="clearLog">Clear</button></div>
+      <div class="activity-list" id="activityList">
+        <div class="empty" id="emptyLog"><span>✓</span><p>No events yet.<small>Run a health check or start the monitor.</small></p></div>
+      </div>
+    </section>
+  </div>
+
+  <section class="card settings-card" id="settings">
+    <div class="card-head"><div><span class="section-tag">03</span><h2>Settings</h2></div><span class="badge purple">LOCAL</span></div>
+    <div class="settings-grid">
+      <label><span>Display threads</span><small>1–100</small><input id="threads" type="number" min="1" max="100" value="10"></label>
+      <label><span>Loop display</span><small>Browser setting</small><select id="loop"><option value="true">Enabled</option><option value="false">Disabled</option></select></label>
+      <label><span>Display delay</span><small>Seconds</small><input id="delay" type="number" min="0" max="3600" value="10"></label>
+    </div>
+    <div class="settings-footer"><p id="saveMessage">Settings are stored only in this browser.</p><div><button class="btn" id="resetBtn">Reset</button><button class="btn primary" id="saveBtn">Save settings</button></div></div>
+  </section>
+
+  <section class="card docs-card" id="docs">
+    <div class="card-head"><div><span class="section-tag">04</span><h2>Project notes</h2></div></div>
+    <div class="doc-grid">
+      <div><h3>What is functional</h3><p>Navigation, settings persistence, validation, live clock, health checks, monitor state, session timer, activity logging, and responsive UI all run in the browser.</p></div>
+      <div><h3>What stays local</h3><p>The original Python application uses Windows APIs, Roblox client files, processes, and authentication cookies. This public dashboard intentionally does not handle those credentials or control Roblox clients.</p></div>
+      <div class="security"><b>Security</b><p>Never place Roblox authentication cookies, passwords, or private API keys in this website or client-side JavaScript.</p></div>
+    </div>
+  </section>
 </section>
+<footer><span>RobloxVisitBot</span><span>Dark control dashboard • Static frontend</span></footer>
 </main>
-<footer>RobloxVisitBot <span>Web dashboard • Static frontend</span></footer>
+</div>
 <script src="script.js"></script>
 </body>
 </html>
