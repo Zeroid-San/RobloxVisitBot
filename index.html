@@ -1,1 +1,81 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RobloxVisitBot — Web Dashboard</title><link rel="stylesheet" href="style.css"></head><body><header class="topbar"><a class="brand" href="#top"><span class="dot"></span>RobloxVisitBot</a><nav><a href="#features">Features</a><a href="#dashboard">Dashboard</a><a href="#docs">Docs</a><a href="https://github.com/Zeroid-San/RobloxVisitBot" target="_blank">GitHub ↗</a></nav></header><main id="top"><section class="hero"><div><div class="eyebrow">PROJECT WEBSITE</div><h1>RobloxVisitBot<br><span>Web Dashboard</span></h1><p>A clean browser interface for exploring the project's configuration, status, and documentation.</p><div class="actions"><a class="btn primary" href="#dashboard">Open dashboard</a><a class="btn" href="#docs">Documentation</a></div><p class="notice">The original Python program runs locally with Roblox/Windows dependencies. This website is a dashboard and project interface; it does not execute Roblox clients or handle authentication cookies in the browser.</p></div><div class="terminal"><div class="terminal-head">dashboard</div><p>$ project.status()</p><p class="good">● WEBSITE READY</p><p>mode: web dashboard</p><p>runtime: browser</p><p>backend: not connected</p></div></section><section id="features"><div class="title"><small>01</small><h2>Project overview</h2></div><div class="cards"><article><b>◈</b><h3>Configuration</h3><p>Review the project's runtime settings in a readable web interface.</p></article><article><b>⌁</b><h3>Status UI</h3><p>A dashboard foundation for future legitimate server-side monitoring.</p></article><article><b>▣</b><h3>Documentation</h3><p>Keep project notes, architecture information, and links in one place.</p></article></div></section><section id="dashboard"><div class="title"><small>02</small><h2>Dashboard</h2></div><div class="grid"><div class="panel"><h3>Project status <span>ONLINE</span></h3><p>Interface <strong>Ready</strong></p><p>Python runtime <strong>Local only</strong></p><p>Roblox client <strong>Not connected</strong></p><p>Cookie storage <strong>Browser disabled</strong></p></div><div class="panel"><h3>Configuration preview <span class="purple">READ ONLY</span></h3><label>Threads</label><input value="10" disabled><label>Loop through cookies</label><select disabled><option>Enabled</option></select><label>Leave-after delay</label><input value="10 seconds" disabled><p class="muted">Safe UI preview of the repository configuration.</p></div></div></section><section id="docs"><div class="title"><small>03</small><h2>Documentation</h2></div><div class="panel"><h3>What this website does</h3><p>This repository now has a browser-friendly project website. It presents the original project's purpose, configuration concepts, and status without exposing Roblox authentication cookies or attempting to launch Roblox clients from a browser.</p><h3>Original project</h3><p>The original implementation is a Windows Python application using local Roblox files and Windows-specific libraries. A normal website cannot directly replace those local capabilities.</p><p><a class="link" href="https://github.com/Zeroid-San/RobloxVisitBot" target="_blank">View source on GitHub ↗</a></p></div></section></main><footer>RobloxVisitBot <span>Web interface • Static frontend</span></footer><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="RobloxVisitBot project dashboard and configuration interface.">
+<title>RobloxVisitBot — Dashboard</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+<a class="brand" href="#top"><span class="dot"></span>RobloxVisitBot</a>
+<nav><a href="#features">Features</a><a href="#dashboard">Dashboard</a><a href="#docs">Docs</a><a href="https://github.com/Zeroid-San/RobloxVisitBot" target="_blank" rel="noreferrer">GitHub ↗</a><button id="themeBtn" class="icon-btn" type="button" aria-label="Toggle theme">☼</button></nav>
+</header>
+<main id="top">
+<section class="hero">
+<div>
+<div class="eyebrow">PROJECT WEBSITE</div>
+<h1>RobloxVisitBot<br><span>Web Dashboard</span></h1>
+<p>A working browser dashboard for viewing and saving safe project settings, checking browser status, and reading the project documentation.</p>
+<div class="actions"><a class="btn primary" href="#dashboard">Open dashboard</a><a class="btn" href="#docs">Documentation</a></div>
+<p class="notice">The original Python program runs locally with Roblox/Windows dependencies. This website does not execute Roblox clients or handle authentication cookies.</p>
+</div>
+<div class="terminal">
+<div class="terminal-head">live status</div>
+<p>$ dashboard.health()</p>
+<p class="good" id="healthLine">● CHECKING...</p>
+<p>mode: web dashboard</p><p>runtime: browser</p>
+<p>clock: <span id="clock">--:--:--</span></p>
+</div>
+</section>
+
+<section id="features">
+<div class="title"><small>01</small><h2>Project overview</h2></div>
+<div class="cards">
+<article><b>◈</b><h3>Configuration</h3><p>Edit the safe dashboard settings and save them in this browser.</p></article>
+<article><b>⌁</b><h3>Live status</h3><p>See browser health, saved settings, and the current dashboard state.</p></article>
+<article><b>▣</b><h3>Documentation</h3><p>Keep the project's architecture and deployment notes in one place.</p></article>
+</div>
+</section>
+
+<section id="dashboard">
+<div class="title"><small>02</small><h2>Dashboard</h2></div>
+<div class="grid">
+<div class="panel">
+<h3>Project status <span id="statusBadge">ONLINE</span></h3>
+<p>Interface <strong>Ready</strong></p>
+<p>Python runtime <strong>Local only</strong></p>
+<p>Roblox client <strong>Not connected</strong></p>
+<p>Cookie storage <strong>Browser disabled</strong></p>
+<button class="btn primary full" id="healthBtn" type="button">Run browser health check</button>
+</div>
+<div class="panel">
+<h3>Dashboard configuration <span class="purple">LOCAL</span></h3>
+<label for="threads">Display threads</label>
+<input id="threads" type="number" min="1" max="100" value="10">
+<label for="loop">Loop display</label>
+<select id="loop"><option value="true">Enabled</option><option value="false">Disabled</option></select>
+<label for="delay">Display delay (seconds)</label>
+<input id="delay" type="number" min="0" max="3600" value="10">
+<div class="actions compact"><button class="btn primary" id="saveBtn" type="button">Save settings</button><button class="btn" id="resetBtn" type="button">Reset</button></div>
+<p class="muted" id="saveMessage">Settings are stored only in this browser using localStorage.</p>
+</div>
+</div>
+</section>
+
+<section id="docs">
+<div class="title"><small>03</small><h2>Documentation</h2></div>
+<div class="panel">
+<h3>What works here</h3>
+<p>This website is a functional static dashboard. Navigation, theme switching, browser health checks, form validation, and local configuration persistence work directly in the browser.</p>
+<h3>What remains local</h3>
+<p>The original <code>main.py</code> is a Windows application that uses local Roblox files, Windows APIs, processes, and authentication cookies. A normal browser cannot safely or directly replace those capabilities.</p>
+<h3>Security</h3>
+<p>Never paste Roblox authentication cookies, passwords, or API secrets into this website or its JavaScript. The dashboard intentionally keeps cookie handling disabled.</p>
+<p><a class="link" href="https://github.com/Zeroid-San/RobloxVisitBot" target="_blank" rel="noreferrer">View source on GitHub ↗</a></p>
+</div>
+</section>
+</main>
+<footer>RobloxVisitBot <span>Web dashboard • Static frontend</span></footer>
+<script src="script.js"></script>
+</body>
+</html>
